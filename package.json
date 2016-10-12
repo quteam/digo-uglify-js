@@ -1,6 +1,6 @@
 {
   "name": "digo-uglify-js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": "http://github.com/digojs/digo-uglify-js",
   "description": "digo 插件：使用 UglifyJS 混淆、压缩或格式化 JS",
   "keywords": [
@@ -14,14 +14,14 @@
   "license": "MIT",
   "author": "xuld <xuld@vip.qq.com>",
   "dependencies": {
-    "uglify-js": "^2.7.3"
+    "uglify-js": "latest"
   },
   "devDependencies": {
-    "mocha": "^2.5.3",
-    "digo": "^0.0.2"
+    "mocha": "latest",
+    "digo": "latest"
   },
   "scripts": {
-    "test": "mocha test.js"
+    "test": "mocha test/test.js"
   },
   "files": [
     "index.js"

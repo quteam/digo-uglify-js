@@ -33,9 +33,9 @@ digo.src("*.js").pipe("digo-uglify-js", {
 ```
 
 ### 源映射(Source Map)
-本插件支持生成源映射，详见[源映射](https://github.com/digo/digo/wiki/源映射)。
+本插件支持生成源映射，详见 [源映射](https://github.com/digojs/digo/wiki/源映射)。
 
-选项
+用法
 --------------------------------------------
 ```js
 digo.src("*.js").pipe("digo-uglify-js", {

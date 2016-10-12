@@ -1,6 +1,7 @@
 ﻿/**
  * @fileOverview digo 插件：使用 UglifyJS 混淆、压缩或格式化 JS
  * @author xuld <xuld@vip.qq.com>
+ * @license MIT
  * @see https://github.com/mishoo/UglifyJS2
  */
 var uglifyJS = require("uglify-js");
@@ -13,7 +14,7 @@ module.exports = function UglifyJS(file, options) {
         inSourceMap: file.sourceMapData,
         outSourceMap: file.sourceMap,
         parse: {
-            filename: file.name
+            filename: file.srcPath
         },
         compress: {
             drop_console: true,
@@ -35,7 +36,7 @@ module.exports = function UglifyJS(file, options) {
         uglifyJS.AST_Node.warn_function = function (output) {
             var match = /\s*\[\d+:(\d+),(\d+)\]$/.exec(output);
             file.warning({
-                name: UglifyJS.name,
+                plugin: UglifyJS.name,
                 message: match ? output.substr(0, match.index) : output,
                 startLine: match && +match[1],
                 startColumn: match && +match[2]
@@ -48,12 +49,7 @@ module.exports = function UglifyJS(file, options) {
         var result = uglifyJS.minify(file.content, options);
     } catch (e) {
         return file.error({
-            name: UglifyJS.name,
-            message: e.message,
-            path: file.path,
-            content: file.content,
-            startLine: e.line - 1,
-            startColumn: e.col,
+            plugin: UglifyJS.name,
             error: e,
         });
     } finally {
