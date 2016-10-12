@@ -16,13 +16,6 @@
   "dependencies": {
     "uglify-js": "latest"
   },
-  "devDependencies": {
-    "mocha": "latest",
-    "digo": "latest"
-  },
-  "scripts": {
-    "test": "mocha test/test.js"
-  },
   "files": [
     "index.js"
   ]
