@@ -11,8 +11,8 @@ module.exports = function UglifyJS(file, options) {
     // 设置默认选项。
     options = merge(options, {
         fromString: true,
-        inSourceMap: file.sourceMapData,
-        outSourceMap: file.sourceMap,
+        inSourceMap: file.sourceMapObject,
+        outSourceMap: file.sourceMap ? file.sourceMapPath : null,
         parse: {
             filename: file.srcPath
         },
@@ -63,7 +63,7 @@ module.exports = function UglifyJS(file, options) {
     if (result.map) {
         var map = JSON.parse(result.map);
         map.sources[0] = file.srcPath;
-        file.sourceMap = map;
+        file.sourceMapData = map;
     }
 };
 
