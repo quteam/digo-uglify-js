@@ -50,6 +50,9 @@ module.exports = function UglifyJS(file, options) {
     } catch (e) {
         return file.error({
             plugin: UglifyJS.name,
+			message: e.message,
+			startLine: e.line - 1,
+			startColumn: e.column,
             error: e,
         });
     } finally {
